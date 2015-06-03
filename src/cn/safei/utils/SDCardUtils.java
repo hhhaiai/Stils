@@ -6,10 +6,27 @@ import android.os.Environment;
 import android.os.StatFs;
 
 /**
- * SD卡相关的辅助类
  *
- * @author sanbo
+ * <p>
+ * Copyright © 2015. All rights reserved.
+ * </p>
+ * <p>
+ * Description: SD卡相关的辅助类
+ * </p>
  *
+ * <p>
+ * Version: 1.0
+ * </p>
+ * <p>
+ * Created: 2015年6月3日 下午3:02:01
+ * </p>
+ * <p>
+ * Author: sanbo
+ * </p>
+ *
+ * <p>
+ * Revision: initial draft
+ * </p>
  */
 public class SDCardUtils {
     private SDCardUtils() {

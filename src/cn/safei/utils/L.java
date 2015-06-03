@@ -3,15 +3,33 @@ package cn.safei.utils;
 import android.util.Log;
 
 /**
- * Log统一管理类
  *
- * @author sanbo
+ * <p>
+ * Copyright © 2015. All rights reserved.
+ * </p>
+ * <p>
+ * Description: Log统一管理类
+ * </p>
  *
+ * <p>
+ * Version: 1.0
+ * </p>
+ * <p>
+ * Created: 2015年6月3日 下午3:00:31
+ * </p>
+ * <p>
+ * Author: sanbo
+ * </p>
+ *
+ * <p>
+ * Revision: initial draft
+ * </p>
  */
 public class L {
 
     private L() {
         /* cannot be instantiated */
+
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
@@ -19,6 +37,7 @@ public class L {
     private static final String TAG = "sanbo";
 
     // 下面四个是默认tag的函数
+    // 哈哈的哈师大会上
     public static void i(String msg) {
         if (isDebug)
             Log.i(TAG, msg);
