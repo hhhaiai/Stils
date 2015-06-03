@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        T.show(this, "heeo", 0);
+        T.show(this, "master", 0);
     }
 
     @Override
