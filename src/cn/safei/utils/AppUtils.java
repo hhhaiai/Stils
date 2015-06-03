@@ -6,10 +6,27 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 /**
- * 跟App相关的辅助类
  *
- * @author sanbo
+ * <p>
+ * Copyright © 2015. All rights reserved.
+ * </p>
+ * <p>
+ * Description: 跟App相关的辅助类
+ * </p>
  *
+ * <p>
+ * Version: 1.0
+ * </p>
+ * <p>
+ * Created: 2015年6月3日 下午3:04:45
+ * </p>
+ * <p>
+ * Author: sanbo
+ * </p>
+ *
+ * <p>
+ * Revision: initial draft
+ * </p>
  */
 public class AppUtils {
 

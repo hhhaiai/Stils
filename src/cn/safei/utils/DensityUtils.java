@@ -4,11 +4,27 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * 常用单位转换的辅助类
  *
- * @author sanbo
+ * <p>
+ * Copyright © 2015. All rights reserved.
+ * </p>
+ * <p>
+ * Description: 常用单位转换的辅助类
+ * </p>
  *
+ * <p>
+ * Version: 1.0
+ * </p>
+ * <p>
+ * Created: 2015年6月3日 下午3:04:31
+ * </p>
+ * <p>
+ * Author: sanbo
+ * </p>
  *
+ * <p>
+ * Revision: initial draft
+ * </p>
  */
 public class DensityUtils {
     private DensityUtils() {

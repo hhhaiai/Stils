@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import cn.safei.utils.R;
 import cn.safei.utils.T;
 
@@ -13,7 +14,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        T.show(this, "heeo", 0);
+
+    }
+
+    public void testToast() {
+        for (int i = 0; i < 100; i++) {
+            T.show(this, "" + i, Toast.LENGTH_LONG);
+        }
     }
 
     @Override
