@@ -1,29 +1,20 @@
 package cn.safei.utils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.net.UnknownHostException;
+
 import android.util.Log;
 
 /**
  *
- * <p>
- * Copyright © 2015. All rights reserved.
- * </p>
- * <p>
- * Description: Log统一管理类
- * </p>
+ * @Copyright © 2015 sanbo Inc.. All rights reserved.
+ * @Title: L.java
+ * @Description: Log统一管理类
+ * @Version: 1.0
+ * @Create: 2015年6月18日 下午4:14:01
+ * @Author: sanbo
  *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午3:00:31
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- * <p>
- * Revision: initial draft
- * </p>
  */
 public class L {
 
@@ -34,28 +25,37 @@ public class L {
     }
 
     public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化
-    private static final String TAG = "sanbo";
+    private static String TAG = "sanbo";
 
     // 下面四个是默认tag的函数
-    // 哈哈的哈师大会上
     public static void i(String msg) {
         if (isDebug)
-            Log.i(TAG, msg);
+            i(TAG, msg);
     }
 
     public static void d(String msg) {
         if (isDebug)
-            Log.d(TAG, msg);
+            d(TAG, msg);
     }
 
     public static void e(String msg) {
         if (isDebug)
-            Log.e(TAG, msg);
+            e(TAG, msg);
     }
 
     public static void v(String msg) {
         if (isDebug)
-            Log.v(TAG, msg);
+            v(TAG, msg);
+    }
+
+    public static void e(String msg, Throwable e) {
+        if (isDebug)
+            e(TAG, msg, e);
+    }
+
+    public static void e(Throwable e) {
+        if (isDebug)
+            e(TAG, null, e);
     }
 
     // 下面是传入自定义tag的函数
@@ -78,4 +78,30 @@ public class L {
         if (isDebug)
             Log.i(tag, msg);
     }
+
+    private static void e(String tag, String msg, Throwable e) {
+        if (isDebug)
+            Log.e(tag, (msg == null ? "" : (msg + "\r\n")) + getStackTrace(e));
+    }
+
+    /**********************************************************************/
+
+    public static void setTAG(String tag) {
+        TAG = tag;
+    }
+
+    /**
+     * 将error转换成字符串
+     */
+    private static String getStackTrace(Throwable e) {
+        if (e == null) {
+            return "";
+        }
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        pw.flush();
+        return sw.toString();
+    }
+
 }
