@@ -10,27 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- *
- * <p>
- * Copyright © 2015. All rights reserved.
- * </p>
- * <p>
- * Description: Http请求的工具类
- * </p>
- *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午3:02:55
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- * <p>
- * Revision: initial draft
- * </p>
+ * @Copyright © 2015 Sanbo Inc. All rights reserved.
+ * @Description: Http请求的工具类
+ * @Create: 2015年6月29日 下午6:33:48
+ * @Author: sanbo
  */
 public class HttpUtils {
 

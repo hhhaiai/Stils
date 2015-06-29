@@ -4,31 +4,11 @@ import android.content.Context;
 import android.os.Handler;
 
 /**
- *
- * <p>
- * Copyright © 2015 . All rights reserved.
- * </p>
- * <p>
- * Description: Toast同一管理类
- * </p>
- *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午2:42:45
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- *
- * <p>
- * Revision: initial draft
- * </p>
- * <p>
- * Modify: 修改Toast为显示最后一个，解决持续出现多个log显示堆积情况
- * </p>
+ * @Copyright © 2015 Sanbo Inc. All rights reserved.
+ * @Description: Toast統一管理
+ * @Create: 2015年6月29日 下午6:37:18
+ * @Author: sanbo
+ * @modify:修改Toast为显示最后一个，解决持续出现多个log显示堆积情况
  */
 public class T {
     public static final int LENGTH_SHORT = android.widget.Toast.LENGTH_SHORT;

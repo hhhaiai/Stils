@@ -1,27 +1,42 @@
 package cn.safei.utils;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.WindowManager;
 
-import com.umeng.fb.fragment.FeedbackFragment;
-import com.umeng.fb.util.FileUtil;
-import com.umeng.fb.util.Log;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
+/**
+ * @Copyright © 2015 sanbo Inc. All rights reserved.
+ * @Description: 图片处理 初稿
+ * @Create: 2015年6月29日 下午6:31:55
+ * @Author: sanbo
+ */
 public class ImageTool {
     private static final String TAG = ImageTool.class.getName();
+
+    /**
+     * 从view 获取图片
+     *
+     * @param view
+     * @return
+     */
+    public static Bitmap getBitmapFromView(View view) {
+        view.destroyDrawingCache();
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = view.getDrawingCache(true);
+        return bitmap;
+    }
 
     /**
      * 压缩图片
@@ -64,69 +79,6 @@ public class ImageTool {
     }
 
     /**
-     * 开启异步任务，保存图片
-     *
-     * @param context
-     * @param originalUri
-     * @param name
-     */
-    public static void saveReplyImage(final Context context, final Uri originalUri, final String name) {
-
-        new AsyncTask<Void, Void, Boolean>() {
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                return saveImage(context,originalUri,name);
-            }
-
-            @Override
-            protected void onPostExecute(Boolean result) {
-                if (result) {
-                    Message msg = new Message();
-                    msg.what = FeedbackFragment.HANDLE_MASSAGE_TYPE_ADD_IMAGE_REPLY;
-                    msg.obj = name;
-                    FeedbackFragment.getHandler().sendMessage(msg);
-                }
-            }
-        }.execute();
-    }
-
-    /**
-     * 保存图片
-     * @param context
-     * @param originalUri
-     * @param name
-     * @return
-     */
-    private static boolean saveImage(Context context,Uri originalUri,String name){
-        boolean result = true;
-
-        String path = FileUtil.getImagePathWithName(context, name);
-        File file = new File(path);
-        FileOutputStream fileOutputStream = null;
-
-        Bitmap bmp = null;
-        try {
-            bmp = zoomBitmap(getBitmapWithUri(context, originalUri));
-            fileOutputStream = new FileOutputStream(file);
-            if (bmp != null) {
-                if (bmp.compress(Bitmap.CompressFormat.JPEG, 80, fileOutputStream)) {
-                }
-            }
-        } catch (Exception e) {
-            file.delete();
-            e.printStackTrace();
-            result = false;
-        } finally {
-            safeRecycle(bmp);
-            try {
-                fileOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
-    }
-    /**
      * 压缩图片
      *
      * @param bitmap
@@ -167,7 +119,8 @@ public class ImageTool {
         input.close();
         if ((bitmapOptions.outWidth == -1) || (bitmapOptions.outHeight == -1))
             return null;
-        int originalSize = (bitmapOptions.outHeight > bitmapOptions.outWidth) ? bitmapOptions.outHeight : bitmapOptions.outWidth;
+        int originalSize = (bitmapOptions.outHeight > bitmapOptions.outWidth) ? bitmapOptions.outHeight
+                : bitmapOptions.outWidth;
         int screenHeight = getScreenLength(context);
         int ratio = (originalSize > screenHeight) ? (originalSize / screenHeight) : 1;
         bitmapOptions.inJustDecodeBounds = false;
@@ -180,25 +133,26 @@ public class ImageTool {
 
     /**
      * 获取屏幕的长度
+     *
      * @param context
      * @return
      */
     private static int getScreenLength(Context context) {
         DisplayMetrics metrics = new DisplayMetrics();
-        WindowManager wm = (WindowManager) (context
-                .getSystemService(Context.WINDOW_SERVICE));
+        WindowManager wm = (WindowManager) (context.getSystemService(Context.WINDOW_SERVICE));
         wm.getDefaultDisplay().getMetrics(metrics);
         return metrics.heightPixels > metrics.widthPixels ? metrics.heightPixels : metrics.widthPixels;
     }
 
     /**
-     *  inJustDecodeBounds=false 这样是因为设置为true的时候可以decode，但是设置成false就无法decode
-     *  所以还是按照true的方式来验证吧
+     * inJustDecodeBounds=false 这样是因为设置为true的时候可以decode，但是设置成false就无法decode
+     * 所以还是按照true的方式来验证吧
+     *
      * @param context
      * @param originalUri
      * @return
      */
-    public static boolean isImage( Context context, Uri originalUri) {
+    public static boolean isImage(Context context, Uri originalUri) {
         ContentResolver resolver = context.getContentResolver();
         Bitmap bitmap = null;
         try {
@@ -211,9 +165,9 @@ public class ImageTool {
             if ((bitmapOptions.outWidth == -1) || (bitmapOptions.outHeight == -1)) {
                 return false;
             }
-        }catch (Exception ignore){
+        } catch (Exception ignore) {
             return false;
-        }finally {
+        } finally {
             safeRecycle(bitmap);
         }
         return true;

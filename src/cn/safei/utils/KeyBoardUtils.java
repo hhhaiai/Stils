@@ -4,29 +4,11 @@ import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-
 /**
- *
- * <p>
- * Copyright © 2015. All rights reserved.
- * </p>
- * <p>
- * Description: 打开或关闭软键盘
- * </p>
- *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午3:02:40
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- * <p>
- * Revision: initial draft
- * </p>
+ * @Copyright © 2015 Sanbo Inc. All rights reserved.
+ * @Description: 软键盘操作
+ * @Create: 2015年6月29日 下午6:35:10
+ * @Author: sanbo
  */
 public class KeyBoardUtils {
     /**

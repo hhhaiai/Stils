@@ -8,27 +8,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- *
- * <p>
- * Copyright © 2015. All rights reserved.
- * </p>
- * <p>
- * Description: 跟网络相关的工具类
- * </p>
- *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午3:02:26
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- * <p>
- * Revision: initial draft
- * </p>
+ * @Copyright © 2015 Sanbo Inc. All rights reserved.
+ * @Description: 网络操作
+ * @Create: 2015年6月29日 下午6:35:38
+ * @Author: sanbo
  */
 public class NetUtils {
     private NetUtils() {

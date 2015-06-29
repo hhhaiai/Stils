@@ -2,13 +2,12 @@ package cn.safei.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.net.UnknownHostException;
 
 import android.util.Log;
 
 /**
  *
- * @Copyright © 2015 sanbo Inc.. All rights reserved.
+ * @Copyright © 2015 Sanbo Inc.. All rights reserved.
  * @Title: L.java
  * @Description: Log统一管理类
  * @Version: 1.0

@@ -9,27 +9,10 @@ import android.view.View;
 import android.view.WindowManager;
 
 /**
- *
- * <p>
- * Copyright © 2015. All rights reserved.
- * </p>
- * <p>
- * Description: 获得屏幕相关的辅助类
- * </p>
- *
- * <p>
- * Version: 1.0
- * </p>
- * <p>
- * Created: 2015年6月3日 下午3:02:16
- * </p>
- * <p>
- * Author: sanbo
- * </p>
- *
- * <p>
- * Revision: initial draft
- * </p>
+ * @Copyright © 2015 Sanbo Inc. All rights reserved.
+ * @Description: 获取屏幕信息
+ * @Create: 2015年6月29日 下午6:36:09
+ * @Author: sanbo
  */
 public class ScreenUtils {
     private ScreenUtils() {
