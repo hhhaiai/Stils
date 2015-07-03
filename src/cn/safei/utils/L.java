@@ -227,8 +227,12 @@ public class L {
      */
     public static void i(String format, Object... args) {
         if (isDebug) {
-            String msg = new Formatter().format(format, args).toString();
-            i(TAG, msg);
+            try {
+                String msg = new Formatter().format(format, args).toString();
+                i(TAG, msg);
+            } catch (Throwable e) {
+                e(e);
+            }
         }
     }
 
@@ -261,8 +265,12 @@ public class L {
      */
     public static void d(String format, Object... args) {
         if (isDebug) {
-            String msg = new Formatter().format(format, args).toString();
-            d(TAG, msg);
+            try {
+                String msg = new Formatter().format(format, args).toString();
+                d(TAG, msg);
+            } catch (Throwable e) {
+                e(e);
+            }
         }
     }
 
@@ -295,8 +303,12 @@ public class L {
      */
     public static void e(String format, Object... args) {
         if (isDebug) {
-            String msg = new Formatter().format(format, args).toString();
-            e(TAG, msg);
+            try {
+                String msg = new Formatter().format(format, args).toString();
+                e(TAG, msg);
+            } catch (Throwable e) {
+                e(e);
+            }
         }
     }
 
@@ -329,8 +341,12 @@ public class L {
      */
     public static void v(String format, Object... args) {
         if (isDebug) {
-            String msg = new Formatter().format(format, args).toString();
-            v(TAG, msg);
+            try {
+                String msg = new Formatter().format(format, args).toString();
+                v(TAG, msg);
+            } catch (Throwable e) {
+                e(e);
+            }
         }
     }
 
